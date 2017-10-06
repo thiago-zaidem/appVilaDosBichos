@@ -1,0 +1,98 @@
+<template name="providersSearch">
+    {{> searchBox}}
+    {{> maps}}
+</template>
+
+<template name="maps">
+    <section id="maps" class="header-margin-line">
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <div class="text"><span>Carregando Mapa</span>aguarde</div>
+        </div><!-- ./loading-container -->
+        <div id="search-loading">
+            <div class="find-result-list ">
+                <div class="find-result"></div>
+				<div class="row">
+					<div class="col s12">
+						{{#each listProviders}}
+						<div class="col s6 info-{{index}}">
+							<div class="box-ads box-home">
+								<a class="hover-effect image image-fill" href="/details/{{_id}}">
+									<span class="cover"></span>
+									<img alt="Sample images" src="/img/sample/property/p4.jpg" style="position: absolute;width: auto;height: 272px;top: 0px;left: -29px;">
+									<h3 class="title">{{title}}</h3>
+								</a><!-- /.hover-effect -->
+								<span class="price">{{especialidade}}</span>
+								<span class="address"><i class="fa fa-map-marker"></i>&nbsp;{{address}}</span>
+								<span class="description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</span>
+								<dl class="detail">
+									<dt class="status">Status:</dt><dd><span>Sale</span></dd>
+									<dt class="area">Area:</dt><dd><span>860m2</span></dd>
+									<dt class="bed">Beds:</dt><dd><span>3</span></dd>
+									<dt class="bath">Baths:</dt><dd><span>2</span></dd>
+								</dl><!-- /.detail -->
+								<div class="footer">
+									<a class="btn btn-reverse" href="property-detail.html">Read now</a>
+								</div>
+							</div><!-- /.box-home .box-ads -->
+						</div><!-- ./col-md-4 -->
+						{{/each}}
+					</div>
+				</div>
+            </div>
+            <div id="search-map" style="overflow: hidden; min-height: 580px; top: 60px; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+                <div class="map map-home header-margin-line" id="map-canvas"></div><!-- ./#map-canvas Google maps -->
+            </div>
+        </div>
+    </section>
+    <!--<section id="property-type" class="ads-type">
+        <div class="container">
+            <div class="ads-type">
+                <div class="property-type-slide" data-navigation=".property-type-slide-nav">
+                    <div class="crsl-wrap">
+                        <figure class="crsl-item">
+                            <a href="#" class="item-type icon-1" data-type="apartamento">
+                                <span class="title">Apartamento</span>
+                                <span class="sub-title"><strong>0</strong> PLACES FOUND</span>
+                            </a>
+                        </figure>
+                        <figure class="crsl-item">
+                            <a href="#" class="item-type icon-2" data-type="building-area">
+                                <span class="title">Building Area</span>
+                                <span class="sub-title"><strong>0</strong> PLACES FOUND</span>
+                            </a>
+                        </figure>
+                        <figure class="crsl-item">
+                            <a href="#" class="item-type icon-3" data-type="condominium">
+                                <span class="title">Condominium</span>
+                                <span class="sub-title"><strong>0</strong> PLACES FOUND</span>
+                            </a>
+                        </figure>
+                        <figure class="crsl-item">
+                            <a href="#" class="item-type icon-4" data-type="cottage">
+                                <span class="title">Cottage</span>
+                                <span class="sub-title"><strong>0</strong> PLACES FOUND</span>
+                            </a>
+                        </figure>
+                        <figure class="crsl-item">
+                            <a href="#" class="item-type icon-5" data-type="family-house">
+                                <span class="title">Family House</span>
+                                <span class="sub-title"><strong>0</strong> PLACES FOUND</span>
+                            </a>
+                        </figure>
+                        <figure class="crsl-item">
+                            <a href="#" class="item-type icon-6" data-type="single-home">
+                                <span class="title">Single Home</span>
+                                <span class="sub-title"><strong>0</strong> PLACES FOUND</span>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="property-type-slide-nav nav-box">
+                        <a href="#" class="previous"></a>
+                        <a href="#" class="next"></a>
+                    </div>
+                </div>&lt;!&ndash; ./crsl-items &ndash;&gt;
+            </div>&lt;!&ndash; ./ads-type &ndash;&gt;
+        </div>&lt;!&ndash; ./container &ndash;&gt;
+    </section>-->
+</template>

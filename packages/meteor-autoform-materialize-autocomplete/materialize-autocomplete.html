@@ -1,0 +1,11 @@
+<template name="afMaterializeAuc">
+	{{#if icon}}
+		<i class="material-icons icon">{{icon}}</i>
+	{{/if}}
+	{{#if addButton}}
+		<a href="#new-modal" data-toggle="modal" class="autocomplete-add-btn">
+			<i class="material-icons">add_circle</i>
+		</a>
+	{{/if}}
+    <input type="text" class="autocomplete-autoform" {{atts}} value="{{value}}"/>
+</template>

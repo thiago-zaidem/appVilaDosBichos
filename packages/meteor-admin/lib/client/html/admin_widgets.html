@@ -1,0 +1,46 @@
+<template name="adminDefaultWidgets">
+    {{#each admin_collections}}
+        {{#unless $eq showWidget false}}
+            {{#if widget}}
+                {{> adminCollectionWidget collection=name}}
+            {{/if}}
+        {{/unless}}
+    {{/each}}
+</template>
+
+<template name="adminCollectionWidget">
+    <div class="{{#if class}}{{class}}{{else}}col-lg-3 col-xs-6{{/if}}">
+        {{#with adminGetCollection collection}}
+            <a href="/{{AdminConfig.dashboard.adminUrl}}/{{this.name}}">
+                <div class="info-box">
+                <span class="info-box-icon  bg-{{color}}">
+                    <i class="fa fa-{{this.icon}}"></i>
+                </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">{{this.label}}</span>
+                        <span class="info-box-number">Cadastrados:&nbsp;{{adminCollectionCount name}}</span>
+                        <a class="info-box-text">
+                            Visualizar todos <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                    <!--                <div class="small-box bg-{color}}">
+                                        <div class="inner">
+                                            <h3>
+                                                {adminCollectionCount name}}
+                                            </h3>
+                                            <p>
+                                                {this.label}}
+                                            </p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fa fa-{this.icon}}"></i>
+                                        </div>
+                                        <a class="small-box-footer">
+                                            Visualizar todos <i class="fa fa-arrow-circle-right"></i>
+                                        </a>
+                                    </div>-->
+                </div>
+            </a>
+        {{/with}}
+    </div>
+</template>

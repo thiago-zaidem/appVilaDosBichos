@@ -1,0 +1,46 @@
+<template name="afArrayField_materialize">
+  <div class="collection">
+    <div class="collection-item">
+      {{afFieldLabelText name=atts.name}}
+
+      {{#if afArrayFieldHasLessThanMaximum name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+        <button
+          type="button"
+          class="btn btn-floating waves-effect waves-light autoform-add-item"
+          data-autoform-field="{{atts.name}}"
+          data-autoform-minCount="{{atts.minCount}}"
+          data-autoform-maxCount="{{atts.maxCount}}">
+            <i class="material-icons">add</i>
+        </button>
+      {{/if}}
+    </div>
+    {{#if afFieldIsInvalid name=atts.name}}
+      <div class="collection-item">
+        <span class="red-text">{{{afFieldMessage name=atts.name}}}</span>
+      </div>
+    {{/if}}
+    {{#afEachArrayItem name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+      <div class="collection-item">
+        {{> afQuickField name=this.name label=false options=afOptionsFromSchema}}
+      </div>
+      {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+        <div class="collection-item">
+          <button type="button" class="btn btn-floating waves-effect waves-light autoform-remove-item">
+            <!--Remover <span class="mdi-content-clear"></span>-->
+              <i class="material-icons">remove</i>
+          </button>
+		{{#if afArrayFieldHasLessThanMaximum name=../atts.name minCount= ../atts.minCount maxCount= ../atts.maxCount}}
+          <button
+              type="button"
+              class="btn btn-floating waves-effect waves-light autoform-add-item"
+              data-autoform-field="{{../atts.name}}"
+              data-autoform-minCount="{{../atts.minCount}}"
+			  data-autoform-maxCount="{{../atts.maxCount}}">
+              <i class="material-icons">add</i>
+          </button>
+      	{{/if}}
+		</div>
+	  {{/if}}
+    {{/afEachArrayItem}}
+  </div>
+</template>

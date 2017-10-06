@@ -1,0 +1,21 @@
+<template name="schedule">
+    <div class="row" id="champion-messages">
+        {{#autoForm id="formSchedule" collection="Providers" doc=selectedScheduleDoc type="update"}}
+            <div class="col s12">
+                <div class="card autoform-object-field">
+                    <div class="card-content">
+                        <div class="card-title" style="margin-bottom: 2em; color: #4a648d;">
+                            Dados do Atendimento
+                        </div>
+                        {{> afQuickFields name="schedule"}}
+                    </div>
+                </div>
+				<div class="row">
+					<div class="input-field col l12 m12 s12">
+						<button type="submit" class="btn btn-primary">{{_ "atualizar"}}</button>
+					</div>
+				</div>
+            </div>
+        {{/autoForm}}
+    </div>
+</template>

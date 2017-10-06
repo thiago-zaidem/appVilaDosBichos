@@ -1,0 +1,26 @@
+<head>
+    <title>Meteor Starter</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+    <link rel="icon" size="80x80" href="/favicon.png">
+    <!--<script	src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyCU9x2LIIDvkHtQLQHQ9KGBsqT0RpH2_n0"></script>-->
+    <!--<script	src="http://maps.googleapis.com/maps/api/js?v=3&sensor=true&key=AIzaSyCU9x2LIIDvkHtQLQHQ9KGBsqT0RpH2_n0"></script>-->
+</head>
+<body id="home" class="header-fixed">
+    <!--<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"><h1>teste</h1></div>
+    <div class="loader-section section-right"></div>
+    </div>-->
+    <div id="st-preloader">
+        <div class="st-preloader-circle"></div>
+    </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=1088273061199758";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    {{> sAlert}}
+</body>

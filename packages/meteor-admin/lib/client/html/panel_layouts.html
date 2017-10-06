@@ -1,0 +1,23 @@
+<template name="PanelLayout">
+    {{> masterLayout}}
+    {{> PanelDeleteModal }}
+</template>
+<template name="PanelDeleteModal">
+    <div class="modal fade" id="panel-delete-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Confirmar exclusão</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza de que deseja excluir?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" id="confirm-delete" class="btn btn-danger">Apagar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</template>

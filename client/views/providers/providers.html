@@ -1,0 +1,22 @@
+<template name="provider">
+    <div class="row" id="champion-messages">
+		<p>selectedProvider:{{selectedProvider.doc}}</p>
+        {{#autoForm id="formProvider" collection="Providers" doc=selectedProvider.doc type=selectedProvider.form}}
+            <div class="col s12">
+                <div class="card autoform-object-field">
+                    <div class="card-content">
+                        <div class="card-title" style="margin-bottom: 2em; color: #4a648d;">
+                            Dados Profissionais
+                        </div>
+                    {{> afQuickFields omitFields='servico, schedule, status, auditoria'}}
+                    </div>
+                </div>
+				<div class="row">
+					<div class="input-field col l12 m12 s12">
+						<button type="submit" class="btn btn-primary">{{_ "atualizar"}}</button>
+					</div>
+				</div>
+            </div>
+        {{/autoForm}}
+    </div>
+</template>

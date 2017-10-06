@@ -1,0 +1,63 @@
+<template name="PanelDashboard">
+    <div>Teste</div>
+</template>
+
+<template name="PanelDashboardViewWrapper">
+    <div></div>
+    {{! This template is used to manually re-render AdminDashboardView on route transition }}
+</template>
+
+<template name="PanelDashboardView">
+    {{> adminAlert}}
+    {{#if adminTemplate panel_collection_name 'view'}}
+        {{#with adminTemplate panel_collection_name 'view'}}
+            {{> UI.dynamic template=name data=data }}
+        {{/with}}
+    {{else}}
+        <div class="alert alert-info">
+            <p>Para adicionar um novo item clique no botão abaixo.</p>
+            <p><a href="{{newPath}}" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a></p>
+        </div>
+        {{> tabular table=panel_table selector=selector class="table dataTable"}}
+    {{/if}}
+</template>
+
+<template name="PanelDashboardNew">
+    {{> adminAlert}}
+    {{#if adminTemplate panel_collection_name 'new'}}
+        {{#with adminTemplate panel_collection_name 'new'}}
+            {{> UI.dynamic template=name data=data }}
+        {{/with}}
+    {{else}}
+        <div class="box box-default">
+            <div class="box-body">
+                {{> quickForm id="panel_insert" collection=panel_collection fields=admin_fields omitFields=panel_omit_fields buttonContent='Create'}}
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+<template name="PanelDashboardEdit">
+    {{> adminAlert}}
+    <div class="box box-default">
+        <div class="box-body">
+            {{#if panel_current_doc}}
+                {{> quickForm id="panel_update" collection=panel_collection doc=panel_current_doc fields=admin_fields omitFields=panel_omit_fields buttonContent='Atualizar'}}
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="panelEditBtn">
+    {{#if isAction 'Editar'}}
+        <a href="{{path}}" class="hidden-xs btn btn-xs btn-primary"><i class="fa fa-pencil"></i></a>
+        <a href="{{path}}" class="visible-xs btn btn-sm btn-primary"><i class="fa fa-pencil"></i> Editar</a>
+    {{/if}}
+</template>
+
+<template name="panelDeleteBtn">
+    {{#if isAction 'Apagar'}}
+        <a data-toggle="modal" doc="{{_id}}" href='#panel-delete-modal' class="hidden-xs btn btn-xs btn-danger btn-delete"><i class="fa fa-times" doc="{{_id}}"></i></a>
+        <a data-toggle="modal" doc="{{_id}}" href='#panel-delete-modal' class="visible-xs btn btn-sm btn-danger btn-delete"><i class="fa fa-times" doc="{{_id}}"></i> Delete</a>
+    {{/if}}
+</template>

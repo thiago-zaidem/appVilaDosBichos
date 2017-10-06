@@ -1,0 +1,73 @@
+<template name="footerHome">
+    <footer id="footer-home">
+        <!--=== Footer Version 1 ===-->
+        <div class="footer-v1">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-2 md-margin-bottom-40">
+                            <a href="/"><img id="logo-footer" class="footer-logo" src="img/logo3-light.png" alt=""></a>
+                            <p>Empresa destinada a prestação de serviços e fornecimento de mão de obra em áreas diversas, contando com o apoio técnico de profissionais experientes e capacitados e fornecedores de alta confiabilidade</p>
+                        </div><!--/col-md-3-->
+                        <!-- End About -->
+                        <!-- Link List -->
+                        <div class="col-md-2 md-margin-bottom-40">
+                            <div class="headline"><h2>Menu</h2></div>
+                            <ul class="list-unstyled link-list">
+                                <li><a href="/about">Sobre nos</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="/servicos">Serviços</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="/clientes">Clientes</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="/trabalho">Nosso Trabalho</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="/contato">Contato</a><i class="fa fa-angle-right"></i></li>
+                            </ul>
+                        </div><!--/col-md-3-->
+                        <!-- End Link List
+                        <div class="col-md-3 hide-sm">
+                            <div class="fb-page" data-href="https://www.facebook.com/Clinap-745646728787735/?ref=br_rs" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+                        </div>-->
+                        <!-- Address -->
+                        <div class="col-md-3 map-img md-margin-bottom-40">
+                            <div class="headline"><h2>Fale com a gente</h2></div>
+                            <address class="md-margin-bottom-40">
+                                Av.8e Q.29 l.05 <br />
+                                Setor Garavelo, Aparecida de Goiania<br />
+                                Telefone: (62) 3588-6443<br />
+                                Email: <a href="mailto:comercial@grupoallconnect.com.br" class="">comercial@grupoallconnect.com.br</a>
+                            </address>
+                        </div><!--/col-md-3-->
+                        <!-- End Address -->
+                        <div class="col-md-4">
+                            Orgulhosamento desenvolvido por&nbsp;<img src="/img/logo-futuriti-branco.png" width="200">
+                        </div>
+                    </div>
+                </div>
+            </div><!--/footer-->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                2015 &copy; Todos os direitos reservado.
+                                <!--<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>-->
+                            </p>
+                        </div>
+                        <!-- Social Links -->
+                        <div class="col-md-6">
+                            <ul class="footer-socials list-inline">
+                                {{#each socialMedia}}
+                                    <li>
+                                        <a href="{{url}}" target="_blank" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{icon}}">
+                                            <i class="fa fa-{{icon}}"></i>
+                                        </a>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <!-- End Social Links -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>

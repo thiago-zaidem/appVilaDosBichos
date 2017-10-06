@@ -1,0 +1,11 @@
+<template name="homeLayout">
+	<div class="layout home-layout">
+        <div class="layout home-layout">
+            {{> navbarSite }}
+            {{> yield }}
+            {{#if equals footer "true"}}
+                {{> footerHome}}
+            {{/if}}
+        </div>
+    </div>
+</template>

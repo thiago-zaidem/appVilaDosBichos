@@ -1,0 +1,27 @@
+<template name="collectionTable">
+    <div class="collection-table">
+        <div class="overlay"></div>
+        <div class="ui menu toolbar">
+            <div class="crud menu item">
+                <a class="create item" title="Create"><i class="add icon"></i></a>
+                <div class="on-selection-show item menu" style="{{selectionItemsStyle}}">
+                    <a class="edit item" title="Edit"><i class="pencil icon"></i></a>
+                    <a class="delete item" title="Delete"><i class="delete icon"></i></a>
+                </div>
+            </div>
+            <div class="right menu item">
+                {{#if showFilter}}
+                    <div class="ui filter input">
+                        {{> reactiveTableFilter id=tableId label="Filter" useFontAwesome=true}}
+                    </div>
+                {{/if}}
+                {{#if tableSettings.checkbox}}
+                    <div class="ui input">
+                        <input type="checkbox" id="checkAll">Selecionar todos
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        {{> reactiveTable collection=items settings=tableSettings}}
+    </div>
+</template>

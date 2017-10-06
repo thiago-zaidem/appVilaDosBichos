@@ -1,0 +1,119 @@
+<template name="navbar">
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a href="{{#if User}}{{Config.dashboardRoute}}{{else}}{{Config.homeRoute}}{{/if}}">
+                <img src="{{Config.dashboardLogo}}" class="brand-logo" style="height: 95%;">
+            </a>
+            <ul class="right hide-on-med-and-down">
+                {{#if User}}
+                    <!--{> notificationsDropdown}}-->
+                    {{#if isInRole 'admin'}}
+                        <li><a href="{{pathFor 'adminDashboard'}}">{{_ "admin"}}</a></li>
+                    {{/if}}
+                    {{#if isInRole Config.profileDashboard}}
+                        {{#each panel_sidebar_items}}
+                            {{#if showMenu}}
+                                {{#if options.urls}}
+                                    {{> panelSidebarItemTree}}
+                                {{else}}
+                                    {{> panelSidebarItem}}
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                        <!--<li><a href="{pathFor 'listProviders'}}">{_ "Providers"}}</a></li>-->
+                        <!--<li><a href="{pathFor 'registrationView'}}">{_ "inscrições enviadas"}}</a></li>-->
+                    {{/if}}
+                    <li>
+                        <a href="#" class="dropdown-button" data-activates="dropdown_profile">
+                            <div class="row">
+                                <div class="col s4 m4 l4">
+                                    <img src="{{profileThumbSrc User._id}}" alt="" class="circle responsive-img valign profile-image">
+                                </div>
+                                <div class="col s2 m2 l2">
+                                    <i class="material-icons right">arrow_drop_down</i>
+                                </div>
+                            </div>
+                        </a>
+                        <ul id="dropdown_profile" class="dropdown-content">
+							<li><a href="{{pathFor 'profile'}}"><i class="material-icons left">perm_identity</i>{{_ "Perfil"}}</a></li>
+							<li><a href="{{pathFor 'account'}}"><i class="material-icons left">account_circle</i>{{_ "Conta"}}</a></li>
+                            <!--<li><a href="{pathFor 'userDetail'}}">{_ "perfildesaude"}}</a></li>-->
+                            <li class="divider"></li>
+							<li><a href="/sign-out"><i class="material-icons left">settings_power</i>{{_ "signout"}}</a></li>
+                        </ul>
+                    </li>
+                    <!--<li>
+                        <a href="{pathFor 'profile'}}" class="close-navbar">{_ "edit_profile"}}</a>
+                    </li>
+                    <li>
+                        <a class="close-navbar" href="/sign-out">{_ "sair"}}</a>
+                    </li>-->
+                {{else}}
+                    <li>
+                        <a class="close-navbar" href="/sign-in">{{_ "login"}}</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="nav-content" style="background: #fff;">
+            <div class="col s12">
+                <ol class="breadcrumb">
+                {{#each Breadcrumb}}
+                    <li>
+                        {{#if showLink}}
+                            <a href="{{url}}" >{{title}}</a>
+                        {{else}}
+                            {{title}}
+                        {{/if}}
+                    </li>
+                {{/each}}
+					<li>
+						<ul class="right hide-on-med-and-down">
+							<li><a href="{{pathFor 'dashboard'}}"><i class="material-icons left">dashboard</i>Painel</a></li>
+							<li><a href="{{pathFor 'profile'}}"><i class="material-icons left">perm_identity</i>{{_ "Perfil"}}</a></li>
+							{{#if isProvider}}
+							<li><a href="{{pathFor 'schedule'}}"><i class="material-icons left">event</i>{{_ "Atendimento"}}</a></li>
+							<li><a href="{{pathFor 'service'}}"><i class="material-icons left">pets</i>{{_ "Serviço"}}</a></li>
+							{{else}}
+							<li><a href="{{pathFor 'pets'}}"><i class="material-icons left">pets</i>{{_ "Pets"}}</a></li>
+							{{/if}}
+							<li><a href="{{pathFor 'account'}}"><i class="material-icons left">account_circle</i>{{_ "Conta"}}</a></li>
+							<li><a href="/sign-out"><i class="material-icons left">settings_power</i>{{_ "signout"}}</a></li>
+						</ul>
+					</li>
+                </ol>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<template name="panelSidebarItem">
+    <li class="{{isActivePath path=url}}">
+        <a href="{{url}}">
+            {{#if options.icon}}
+                <i class="fa fa-{{options.icon}}"></i>
+            {{/if}}
+            <span>{{title}}</span>
+        </a>
+    </li>
+</template>
+
+<template name="panelSidebarItemTree">
+    <li class="hidden-xs">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {{#if options.icon}}
+                <i class="fa fa-{{options.icon}}"></i>
+            {{/if}}
+            <span>{{title}}</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="dropdown-menu">
+            {{#each options.urls}}
+                {{#if showItem}}
+                    <li class="{{isActivePath path=url}}"><a href="{{url}}"><i class="fa fa-angle-left pull-right"></i>{{title}}</a></li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </li>
+</template>
+

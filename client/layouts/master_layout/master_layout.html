@@ -1,0 +1,19 @@
+<template name="masterLayout">
+	<div class="layout master-layout {{$.Session.get 'sidebar'}}">
+        {{#if currentUser }}
+            {{> navbar}}
+        {{/if}}
+		{{#momentum plugin='iron-router' options=momentumIRTransition}}
+			<div class="container">
+            {{> yield }}
+            </div>
+		{{/momentum}}
+	</div>
+	
+	<!-- Prevent footer from popping up when route loading -->
+	{{#if isRouteReady}}
+	    {{> footer}}
+	{{/if}}
+
+	{{> autoformModals}}
+</template>

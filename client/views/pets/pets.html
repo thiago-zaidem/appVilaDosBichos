@@ -1,0 +1,27 @@
+<template name="pets">
+	<div class="row" id="champion-messages">
+		{{#autoForm id="formPets" collection="Pets" doc=selectedPets.doc type=selectedPets.form}}
+			<div class="col s12">
+				<div class="col s3">
+					{{> afQuickField name="picture"}}
+					<!--<button type="submit" class="btn btn-primary">{_ "atualizar"}}</button>-->
+				</div>
+				<div class="col s9">
+					<div class="card autoform-object-field">
+						<div class="card-content">
+							<div class="card-title" style="margin-bottom: 2em; color: #4a648d;">
+								Cadastro de Pets
+							</div>
+							{{> afQuickFields omitFields='picture, auditoria'}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col l12 m12 s12">
+							<button type="submit" class="btn btn-primary">{{_ "atualizar"}}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/autoForm}}
+	</div>
+</template>

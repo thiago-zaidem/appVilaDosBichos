@@ -1,0 +1,54 @@
+<template name="service">
+	<div class="row" id="champion-messages">
+		{{#autoForm collection="Providers" id="formService" doc=selectedServiceDoc type="update"}}
+			<div class="col s12">
+				<div class="card autoform-object-field">
+					<div class="card-content">
+						<div class="card-title" style="margin-bottom: 2em; color: #4a648d;">
+							Cadastro dos serviços
+						</div>
+						{{#afEachArrayItem name="servico.service"}}
+							<div class="row">
+								<div class="input-field col l3 m3 s6">
+									{{> afQuickField name=this.current.type }}
+								</div>
+								<div class="input-field col l3 m3 s6">
+									{{> afQuickField name=this.current.price}}
+								</div>
+								<div class="input-field col l4 m4 s10">
+									{{> afQuickField name=this.current.desc}}
+								</div>
+								{{#if afArrayFieldHasLessThanMaximum name="servico.service" minCount="1" maxCount="15"}}
+									<div class="input-field col l1 m1 s1">
+										<button
+												type="button"
+												class="btn btn-floating waves-effect waves-light autoform-add-item"
+												data-autoform-field="servico.service"
+												data-autoform-minCount="1"
+												data-autoform-maxCount="15">
+											<i class="material-icons">add</i>
+										</button>
+									</div>
+								{{/if}}
+								<div class="input-field col l1 m1 s1">
+									{{#if afArrayFieldHasMoreThanMinimum name="servico.service" minCount="1" maxCount="15"}}
+										<div class="collection-item">
+											<button type="button" class="btn btn-floating waves-effect waves-light autoform-remove-item">
+												<i class="material-icons">remove</i>
+											</button>
+										</div>
+									{{/if}}
+								</div>
+							</div>
+						{{/afEachArrayItem}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col l12 m12 s12">
+						<button type="submit" class="btn btn-primary">{{_ "atualizar"}}</button>
+					</div>
+				</div>
+			</div>
+		{{/autoForm}}
+	</div>
+</template>

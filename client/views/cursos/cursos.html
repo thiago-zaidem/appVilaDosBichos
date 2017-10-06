@@ -1,0 +1,84 @@
+<template name="cursos">
+    <section id="cursos" class="colored-gray text-center" style="padding-top: 200px; padding-bottom:100px; background: url('/img/cursos-bg.png') no-repeat">
+        <div class="container">
+            <h1 class="title-page text-left">Cursos</h1>
+            {{#each cursos}}
+            <div class="box-curso">
+                <div class="titulo-curso">{{nome}}</div>
+                <!--<div class="data-curso">@diaSemana - @dataInicial</div>-->
+                <div class="data-curso text-left">Turmas em aberto</div>
+                <div class="img-curso">
+                    {{#with getPic picture 'Attachments'}}
+                        <img src="{{url}}" width="255" />
+                    {{/with}}
+                </div>
+                <a href="#" id="{{_id}}" class="more-btn">Detalhes</a>
+            </div>
+            <div class="box-curso-conteudo" id="conteudo_{{_id}}" style="display: none;">
+                <div class="box-detalhes-topo">
+                    <div class="img-curso-conteudo">
+                        {{#with getPic picture 'Attachments'}}
+                            <img src="{{url}}" width="255" />
+                        {{/with}}
+                    </div>
+                    <div class="titulo-curso-conteudo">
+                        <h2>{{nome}}</h2>
+                        {{#if data}}
+                            <h3>{{data}}</h3>
+                        {{/if}}
+                        <h3>26/03/2016</h3>
+                    </div>
+                    <div class="links">
+                        <a href="#" class="showInfo">+Informações</a>
+                        <!--<a href="#" onclick="callForm({{_id}})">Inscreva-se</a>-->
+                        <a href="#" class="hideDetails">Voltar</a>
+                    </div>
+                </div>
+                <div class="box-detalhes-conteudo text-left">
+                    <p class="h1">Detalhes do curso</p>
+                    <p class="h2">Facilitadora</p>
+                    <p class="h3">{{facilitadora}}</p>
+
+                    <p class="h2">Objetivo</p>
+                    <span class="h3">{{objetivo}}</span>
+
+                    <p class="h2">Conteúdo</p>
+                    <span class="h3">{{conteudo}}</span>
+
+                    <p class="h2">Data</p>
+                    <p class="h3">{{data}}</p>
+
+                    <p class="h2">Carga horária</p>
+                    <p class="h3">{{cargaHoraria}}</p>
+
+                    <p class="h2">Público alvo</p>
+                    <p class="h3">{{publicoAlvo}}</p>
+
+                    <p class="h2">Local</p>
+                    <p class="h3">{{local}}</p>
+
+                    <div class="googleMaps">
+                        <iframe width="1140" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://mapsengine.google.com/map/embed?mid=z7XvGrzCgSqg.ktEk_kKn-Wp4" style="color:#0000FF;text-align:left"></iframe>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <div class="box-informacoes">
+                <h4 class="subtitle-page">+Informações - Entre em contato</h4>
+                {{#autoForm id="moreInfo" schema="Schemas.contatoSchema" class="formContact"}}
+                    {{> afQuickField name='nome' autofocus='' }}
+                    {{> afQuickField name='email' }}
+                    {{> afQuickField name="telefone" }}
+                    {{> afQuickField name="cidadeEstado" }}
+                    {{> afQuickField name="mensagem" rows=5 }}
+                    <div>
+                        <button type="submit" class="btn" id="btnEnviar">
+                            <p>Enviar</p>
+                            <i class="fa fa-angle-right fa-2x"></i>
+                        </button>
+                    </div>
+                {{/autoForm}}
+            </div>
+        </div>
+    </section>
+</template>

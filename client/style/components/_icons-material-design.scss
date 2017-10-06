@@ -1,0 +1,15 @@
+/* This is needed for some mobile phones to display the Google Icon font properly */
+.material-icons {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+
+  &.icon{
+    position: absolute;
+    top: 12px;
+    color: #d1d1d1;
+
+    &.active{
+      color:#7986cb;
+    }
+  }
+}

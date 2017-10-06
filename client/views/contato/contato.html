@@ -1,0 +1,48 @@
+<template name="contato">
+    <section id="banner">
+        <div id="banner-area">
+            <img src="img/banner1.jpg" alt ="" />
+            <div class="parallax-overlay"></div>
+            <!-- Subpage title start -->
+            <div class="banner-title-content">
+                <div class="text-center">
+                    <h2>Contato</h2>
+                </div>
+            </div><!-- Subpage title end -->
+        </div><!-- Banner area end -->
+    </section>
+    <section id="contato" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 heading-inner animated fadeInLeft">
+                    <span class="title-icon classic pull-left"><i class="fa fa-envelope"></i></span>
+                    <h2 class="title classic">Entre em contato</h2>
+                </div>
+                <div class="form">
+                    {{#autoForm id="contact" schema="Schemas.contatoSchema" class="formContact"}}
+                        {{> afQuickField name='nome' autofocus='' }}
+                        {{> afQuickField name='email' }}
+                        {{> afQuickField name="telefone" }}
+                        {{> afQuickField name="cidadeEstado" }}
+                        {{> afQuickField name="mensagem" rows=5 }}
+                        <div>
+                            <button type="submit" class="btn btn-primary" id="btnEnviar">
+                                <p>Enviar</p>
+                                <i class="fa fa-angle-right fa-3x"></i>
+                            </button>
+                        </div>
+                    {{/autoForm}}
+                </div>
+                <div class="location">
+                    <div class="googleMaps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3820.2643212546163!2d-49.34600707279976!3d-16.763520108694287!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef78c3aa5e15f%3A0x9bb38b7f97a5cde0!2sAllConnect!5e0!3m2!1spt-BR!2sus!4v1464203856429" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="endereco">
+                        <h4 class="subtitle-page">Rua 8E, Qd. 29, LT. 05 - Res. Park Garavelo - Aparecida de Goiânia-GO</h4>
+                        <h4 class="subtitle-page">(62) 3588.6443&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;3094.2161﻿</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

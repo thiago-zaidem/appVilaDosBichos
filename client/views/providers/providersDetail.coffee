@@ -1,0 +1,2 @@
+Template.appointment.rendered = () ->
+	

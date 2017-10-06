@@ -1,0 +1,167 @@
+{
+
+  /*Config*/
+  "configName": "My App",
+  "configTitle": "Faça Apps Meteor. Rápido.",
+  "configSubtitle": "Crie rapidamente aplicativos funcionais e bonitos com Meteor",
+
+  /*Home*/
+  "getstarted": "Get Started",
+  "dashboard": "Go to dashboard",
+  "learn": "Aprenda mais",
+  "intro": "Make Meteor Apps. Fast.",
+  "how": "How It Works",
+  "step_1": "Step 1",
+  "step_1_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "step_2": "Step 2",
+  "step_2_text": "Oratio me istius philosophi non offendit; Qua tu etiam inprudens utebare non numquam.",
+  "step_3": "Step 3",
+  "step_3_text": "Et ille ridens: Video, inquit, quid agas; Duo Reges: constructio interrete.",
+  "section_ipad_header": "A revolutionary product",
+  "section_ipad_text": "Do really cool stuff really quickly",
+  "section_ipad_btn": "Made by MeteorFactory",
+  "final_text": "Your life will be instantly better.",
+  "final_cta": "Take a look",
+
+  /*Shared*/
+
+  "favorite": "Favorite",
+
+  /*Navbar*/
+  "admin": "Admin",
+  "profile": "Perfil",
+  "account": "Usuário",
+  "signout": "Sair",
+  "signup": "Inscrição",
+  "login": "Log in",
+  "login2": "Login",
+  "edit_profile": "Editar perfil",
+
+  /*Not Found*/
+  "not_found": "Nada aqui.",
+
+
+  /*Dashboard*/
+  "add_post": "Add a Post",
+  "add_post_btn": "Add Post",
+  "add_post_modal": "Add with a modal",
+  "add_post_modal_btn": "Add a new post",
+  "edit_post": "Edit post",
+  "delete": "Delete",
+  "favorites": "Favorites",
+
+  /*Account*/
+  "account_details": "Detalhes do usuário",
+  "delete_account": "Deletar conta",
+  "delete_account_warn": "A conta será apagada permanentemente. Não há volta.",
+  "delete_account_warn2": "Are you sure you want to delete your account?",
+  "close": "Fechar",
+  "change_pswd": "Alterar Password",
+
+  /*Profile*/
+  "update": "Gravar",
+
+  /*Posts*/
+
+  "postTitle": "Title",
+  "postContent": "Content",
+  "postPicture": "Picture",
+  // "uploadLabel": "Choose File"
+  "profilePicture": "Profile Picture",
+
+  /*Aldee Tabular*/
+
+  "sEmptyTable": "Nenhum registro encontrado",
+  "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+  "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+  "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+  "sInfoPostFix": "",
+  "sInfoThousands": ".",
+  "sLengthMenu": "_MENU_ resultados por página",
+  "sLoadingRecords": "Carregando...",
+  "sProcessing": "Processando...",
+  "sZeroRecords": "Nenhum registro encontrado",
+  "sSearch": "Pesquisar",
+  "oPaginate": {
+    "sNext": "Próximo",
+    "sPrevious": "Anterior",
+    "sFirst": "Primeiro",
+    "sLast": "Último"
+  },
+  "oAria": {
+    "sSortAscending": ": Ordenar colunas de forma ascendente",
+    "sSortDescending": ": Ordenar colunas de forma descendente"
+  },
+
+  /*Simple Schema*/
+  "simpleschema": {
+    "messages": {
+      "required": "[label] é obrigatório",
+      "minString": "[label] deve ter no mínimo [min] caracteres",
+      "maxString": "[label] não pode ter mais do que [max] caracteres",
+      "minNumber": "[label] deve ser ao menos [min]",
+      "maxNumber": "[label] não pode ser maior do que [max]",
+      "minNumberExclusive": "[label] deve ser maior que [min]",
+      "maxNumberExclusive": "[label] deve ser menor que [max]",
+      "minDate": "[label] deve ser igual a ou antes de [min]",
+      "maxDate": "[label] não pode ser depois de [max]",
+      "badDate": "[label] não é uma data válida",
+      "minCount": "Você deve especificar no mínimo [minCount] valores",
+      "maxCount": "Você não pode especificar mais do que [maxCount] valores",
+      "noDecimal": "[label] deve ser um número inteiro",
+      "notAllowed": "[value] não é um valor permitido",
+      "expectedString": "[label] deve ser uma string",
+      "expectedNumber": "[label] deve ser um número",
+      "expectedBoolean": "[label] deve ser um boolean",
+      "expectedArray": "[label] deve ser um array",
+      "expectedObject": "[label] deve ser um objeto",
+      "expectedConstructor": "[label] deve ser um(a) [type]",
+      "keyNotInSchema": "[key] não é permitido pelo esquema",
+      "regEx": {
+        "0": {
+          "msg": "[label] falhou no teste de expressão regular"
+        },
+        "1": {
+          "exp": "SimpleSchema.RegEx.Email",
+          "msg": "[label] deve ser um endereço de email válido"
+        },
+        "2": {
+          "exp": "SimpleSchema.RegEx.WeakEmail",
+          "msg": "[label] deve ser um endereço de email válido"
+        },
+        "3": {
+          "exp": "SimpleSchema.RegEx.Domain",
+          "msg": "[label] deve ser um domínio válido"
+        },
+        "4": {
+          "exp": "SimpleSchema.RegEx.WeakDomain",
+          "msg": "[label] deve ser um domínio válido"
+        },
+        "5": {
+          "exp": "SimpleSchema.RegEx.IP",
+          "msg": "[label] deve ser um endereço IPv4 ou IPv6 válido"
+        },
+        "6": {
+          "exp": "SimpleSchema.RegEx.IPv4",
+          "msg": "[label] deve ser um endereço IPv4 válido"
+        },
+        "7": {
+          "exp": "SimpleSchema.RegEx.IPv6",
+          "msg": "[label] deve ser um endereço IPv6 válido"
+        },
+        "8": {
+          "exp": "SimpleSchema.RegEx.Url",
+          "msg": "[label] deve ser uma URL válida"
+        },
+        "9": {
+          "exp": "SimpleSchema.RegEx.Id",
+          "msg": "[label] deve ser um ID alfanumérico válido"
+        }
+      },
+      "validacaoTermo": "Você deve aceitar o termo de uso",
+      "cpfError": "CPF Inválido",
+      "startTimeBiggerEndTime": "O horário inicial não pode ser MAIOR que o horario final",
+      "endTimeSmallerStartTime": "O horário final não pode ser MENOR que o horario inicial"
+    }
+  }
+}

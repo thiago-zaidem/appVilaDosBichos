@@ -1,0 +1,48 @@
+<template name="noticias">
+    <section id="noticias" class="colored-gray text-center" style="padding-top: 200px; padding-bottom:100px; background: url('/img/cursos-bg.png') no-repeat">
+        <div class="container">
+            <h1 class="title-page text-left">Notícias</h1>
+            {{> newsList}}
+        </div>
+    </section>
+</template>
+<template name="newsList">
+    <div class="news">
+        {{#each news}}
+            {{> newsItem}}
+        {{/each}}
+        {{#if nextPath}}
+            <a class="load-more" href="{{nextPath}}">Mais</a>
+        {{/if}}
+    </div>
+</template>
+<template name="newsItem">
+    <div class="oportunidade" id="{{_id}}">
+        <div class="news-content">
+            <ul class="text-left">
+                <li class="vaga">
+                    {{#with getPic picture 'Attachments'}}
+                        <img src="{{url}}" width="200" />
+                    {{/with}}
+                    <a class="vagaTitle" title="vaga {{titulo}}">
+                        <h1>{{titulo}}</h1>
+                    </a>
+                    <ul class="text-right">
+                        <li class="data text-right" ><h4>{{formatDate auditoria.createdAt}}</h4></li>
+                    </ul>
+                </li>
+                <li class="nivel_{{_id}}">
+                    <h3><i>{{introducao}}</i></h3>
+                </li>
+                <li class="vagaDesc_{{_id}}" style="display: none">
+                    <h3>{{texto}}</h3>
+                </li>
+                <li class="more text-center" id="more_{{_id}}">
+                    <a hfer="#" alt="mais">
+                        <i class="fa fa-angle-down fa-3x"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>

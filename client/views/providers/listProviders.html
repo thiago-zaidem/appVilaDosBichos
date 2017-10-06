@@ -1,0 +1,14 @@
+<template name="listProviders">
+    <div class="container">
+        <div class="alert alert-info">
+            <p>Para adicionar um novo item clique no botão abaixo.</p>
+            <p><a href="{{pathFor 'cadProviders'}}" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a></p>
+        </div>
+        <div class="row" id="champion-messages">
+            {{#autoForm id="insertProviders" collection=Providers doc=Providers type="insert"}}
+                {{> collectionTable collection=tableSettings.collection fields=tableSettings.fields items=tableSettings.items settings=tableSettings }}
+                <input type="submit" class="btn btn-primary">
+            {{/autoForm}}
+        </div>
+    </div>
+</template>

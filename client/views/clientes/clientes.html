@@ -1,0 +1,54 @@
+<template name="clientes">
+    <section id="banner">
+        <div id="banner-area">
+            <img src="img/banner1.jpg" alt ="" />
+            <div class="parallax-overlay"></div>
+            <!-- Subpage title start -->
+            <div class="banner-title-content">
+                <div class="text-center">
+                    <h2>Clientes</h2>
+                </div>
+            </div><!-- Subpage title end -->
+        </div><!-- Banner area end -->
+    </section>
+    <section id="clientes" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 heading-inner animated fadeInLeft">
+                    <span class="title-icon classic pull-left"><i class="fa fa-users"></i></span>
+                    <h2 class="title classic">Nossos Clientes</h2>
+                </div>
+                {{> clientList}}
+            </div>
+        </div>
+    </section>
+</template>
+<template name="clientList">
+    <div class="clients">
+        {{#each clients}}
+            {{> clienteItem}}
+        {{/each}}
+        {{#if nextPath}}
+            <a class="load-more" href="{{nextPath}}">Mais</a>
+        {{/if}}
+    </div>
+</template>
+<template name="clienteItem">
+    <!-- Clients Block-->
+    <div class="row clients-page">
+        <div class="col-md-2">
+            {{#with getPic picture 'Attachments'}}
+                <img class="img-responsive hover-effect" src="{{url}}" />
+            {{/with}}
+        </div>
+        <div class="col-md-10">
+            <h3>{{nome}}</h3>
+            <ul class="list-inline">
+                <li><i class="fa fa-globe color-green"></i> <a class="linked" href="http://{{website}}">{{website}}</a></li>
+                <li><i class="fa fa-briefcase color-green"></i>{{trabalho}}</li>
+            </ul>
+            <p>{{descricao}}</p>
+        </div>
+    </div>
+    <!-- End Clients Block-->
+</template>

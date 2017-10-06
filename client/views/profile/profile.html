@@ -1,0 +1,18 @@
+<template name="profile">
+    <div class="row" id="champion-messages">
+        {{#autoForm id="updateProfile" collection=Users doc=User type="update"}}
+            <div class="col s3">
+                {{> afQuickField name="profile.picture"}}
+                <!--<button type="submit" class="btn btn-primary">{_ "atualizar"}}</button>-->
+            </div>
+            <div class="col s9">
+                {{> afQuickField name='profile' omitFields="profile.picture, profile.validacao"}}
+				<div class="row">
+					<div class="input-field col l12 m12 s12">
+						<button type="submit" class="btn btn-primary">{{_ "atualizar"}}</button>
+					</div>
+				</div>
+            </div>
+        {{/autoForm}}
+    </div>
+</template>

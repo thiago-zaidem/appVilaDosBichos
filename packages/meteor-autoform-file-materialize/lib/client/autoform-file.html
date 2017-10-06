@@ -1,0 +1,62 @@
+<template name="afFileUpload">
+		{{#unless isUploaded}}
+		<div class="col s12 center-align">
+			<div class="preloader-wrapper big active">
+		    <div class="spinner-layer spinner-blue-only">
+		      <div class="circle-clipper left">
+		        <div class="circle"></div>
+		      </div><div class="gap-patch">
+		        <div class="circle"></div>
+		      </div><div class="circle-clipper right">
+		        <div class="circle"></div>
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+		{{/unless}}
+		{{#if fileUpload}}
+		{{#with fileUpload}}
+			{{> Template.dynamic template=template data=data}}
+		{{/with}}
+		<br/>
+		<a class="file-upload-clear btn-flat red-text" file-input="{{name}}"><i class="mdi-action-highlight-remove"></i> {{removeLabel}}</a>
+		{{else}}
+    <div class="file-field input-field">
+        {{#if buttonEnabled}}
+          <input class="file-path validate" type="text" placeholder="{{this.atts.placeholder}}"/>
+          <div class="btn">
+            <span>{{{buttonlabel}}}</span>
+            <input class="hidden file-upload" id="file-{{name}}" file-input="{{name}}" type="file" />
+          </div>
+        {{/if}}
+        {{#if dropEnabled}}
+            <input class="hidden file-upload" id="file-{{name}}" file-input="{{name}}" type="file" />
+			<div class="row valign dropify-wrapper">
+				<div class="col s12">
+					<div data-action="file-dropped" class="file-dropped valign-wrapper {{dropClasses}}">
+                        <div class="dropify-message">
+                            <span class="file-icon"></span>
+                            <p>{{{dropLabel}}}</p>
+                        </div>
+						<!--<div class="center-align valign">
+							{dropLabel}}}
+						</div>-->
+					</div>
+				</div>
+			</div>
+        {{/if}}
+    </div>
+		{{/if}}
+		<!-- <div class="">{{> afQuickField name=name}}</div> -->
+		<input type="text" style="display:none;" data-cfs-collection="{{this.atts.collection}}" {{fileUploadAtts}} value="{{value}}">
+</template>
+
+<template name="fileThumbIcon">
+	<a class="btn btn-flat" target="_blank">
+		<i class="fa fa-{{icon}}"></i> {{src}}
+	</a>
+</template>
+
+<template name="fileThumbImg">
+	<img src="{{src}}" alt="" class="img-fileUpload-thumbnail responsive-img">
+</template>

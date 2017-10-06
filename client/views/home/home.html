@@ -1,0 +1,103 @@
+<template name="home">
+    <div id="skrollr-body">
+        <section id="slideshow" class="colored text-center">
+            {{> slideshow}}
+            {{> searchBox}}
+        </section>
+    </div>
+</template>
+
+<template name="searchBox">
+    <section id="search-box" class="no-margin">
+        <div class="wrapper-home"></div>
+        <div class=" search-container fixed-map">
+            <div class="search-options home-page">
+                <!--<span class="botton-options"><i class="fa fa-chevron-down"></i> Show Advanced Search</span>-->
+                <div class="container searcher">
+                    <div class="row margin-div">
+                        <div class="col s2 m2 l2 margin-bottom">
+                            <h5>O que você procura?</h5>
+                        </div>
+                        <!--<div class="col-sm-6 col-md-3 margin-bottom">
+                            <input class="form-control" type="text" name="keywords" id="keywords" placeholder="" />
+                        </div>-->
+						<div class="input-field col s3">
+                            <select name="perfil" id="select-perfil">
+								{{#each listPerfil}}
+									<option value="{{tipo}}">{{tipo}}</option>
+								{{/each}}
+                            </select>
+							<label>Profissional</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <select name="especialidade" id="select-especialidade">
+								<option value="todas">Todas especialidades</option>
+								{{#each getEspecialidades areas}}
+									<option value="{{especialidade}}">{{especialidade}}</option>
+								{{/each}}
+                            </select>
+							<label>Especialidade</label>
+                        </div>
+						<div class="input-field col s2">
+							<i class="material-icons icon">search</i>
+							<input type="text" name="cidade" id="autocomplete-input" placeholder="Buscar" class="autocomplete icon">
+							<label for="autocomplete-input" class="active">Cidade</label>
+						</div>
+                        <div class="col s2 m2 l2" style="margin-top: 14px;">
+                            <button type="button" class="btn btn-primary" value="120">Buscar</button>
+                        </div>
+                    </div><!-- ./row 1 -->
+                    <!--<div class="row margin-div sercher-margin-bottom">
+                        <div class="col-sm-6 col-md-2 margin-bottom">
+                            <span id="label-bathroom" data-text="Banheiro"></span>
+                            <input class="form-control" type="text" name="bathroom" id="bathroom" value="3" />
+                        </div>
+                        <div class="col-sm-6 col-md-2 margin-bottom">
+                            <span id="label-bedroom" data-text="Quarto"></span>
+                            <input class="form-control" type="text" name="bedroom" id="bedroom" value="2" />
+                        </div>
+                        <div class="col-sm-6 col-md-2 margin-bottom">
+                            <span id="label-property-size" data-text="mts"></span>
+                            <input class="form-control" type="text" name="property-size" id="property-size" value="120" />
+                        </div>
+                        <div class="col-sm-12 col-md-3 margin-bottom">
+                            <div class="slider" id="price-range"></div>
+                            <div class="price-slider price">
+                                <span id="price-value-min"></span>
+                                <span class="separator">R$</span>
+                                <span id="price-value-max"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3 margin-bottom">
+                            <button type="button" class="btn btn-primary form-control" value="120">Buscar</button>
+                        </div>
+                    </div>--><!-- ./row 2 -->
+                    <!--<div class="row filter hide-filter hidden-xs hidden-sm">
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Swimming Pool" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Fire Extinguisher" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Close to School"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Air Conditioning" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Built-in Kitchen" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Business District"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Pet Allowed" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Health Club"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Balcony" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Dryer"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Solar Heat" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Wine Cellar" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Hospital"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Sport Club" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Golf Course"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Lake View"></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Backyard" checked></div>
+                        <div class="col-xs-6 col-sm-4 col-md-3"><input class="labelauty" type="checkbox" data-labelauty="Laundry" checked></div>
+                    </div>--><!-- ./filter -->
+                    <!--<div class="margin-div footer">
+                        <button type="button" class="btn btn-default more-button hidden-xs hidden-sm">More filters</button>
+                        <button type="button" class="btn btn-default search-button">advanced search</button>
+                    </div>--><!-- ./footer -->
+                </div><!-- ./searcher -->
+            </div><!-- search-options -->
+        </div><!-- search-container fixed-map -->
+    </section>
+</template>

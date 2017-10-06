@@ -1,0 +1,12 @@
+<template name="userDetail">
+    <div class="container">
+        <div class="row" id="champion-messages">
+            {{#autoForm id="updateUserDetail" collection=Users doc=User type="update"}}
+                <div class="col-md-8">
+                    {{> afQuickField name='usersDetails' omitFields="usersDetails.validacao"}}
+                    <button type="submit" class="btn btn-primary">{{_ "update"}}</button>
+                </div>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>

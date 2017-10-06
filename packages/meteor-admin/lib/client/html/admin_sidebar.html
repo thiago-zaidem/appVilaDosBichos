@@ -1,0 +1,117 @@
+<template name="AdminSidebar">
+    <aside class="main-sidebar">
+        <div class="sidebar">
+            <!-- user panel (Optional) -->
+            <div class="user-panel">
+                <div class="profile-element image">
+                    {{#with getPic currentUser.profile.picture "ProfilePictures"}}
+                        <img src="{{url}}" class="img-square" alt="User Image">
+                    {{/with}}
+                </div>
+                <!--<div class="profile-element info">
+                    <span class="block ">
+                        <strong class="font-bold">{currentUser.profile.nomeCompleto}}</strong>
+                    </span>
+                </div>-->
+                <div class="profile-element info dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                        <span class="clear">
+                            <span class="font-bold block">{{currentUser.profile.nomeCompleto}} <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <br><br>
+                    <i class="fa fa-circle text-success"></i>&nbsp;Online
+                    <ul class="dropdown-menu animated fadeInDown ">
+                        <li class="">
+                            <a href="{{pathFor 'adminDashboardUsersEdit' _id=currentUser._id}}">
+                                Seu perfil
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="">
+                            <a href="/sign-out" class="btn-sign-out">Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- /.user-panel -->
+            <div class="sidebar-collapse">
+                <ul class="sidebar-menu">
+                    <li class="header">MENU PRINCIPAL</li>
+                    <li class="{{isActiveRoute 'adminDashboard'}}">
+                        <a href="{{pathFor 'adminDashboard'}}">
+                            <i class="fa fa-dashboard"></i> <span>Painel Administrativo</span>
+                        </a>
+                    </li>
+                    {{#each admin_collections}}
+                        {{#if sidebar}}
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-{{this.icon}}"></i>
+                                    <span>{{this.label}}</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    {{#if isAction 'Inserir'}}
+                                        <li class="{{isActivePath path=newPath}}"><a href="{{newPath}}"><i class="fa fa-angle-double-right"></i> Novo</a></li>
+                                    {{/if}}
+                                    {{#if isAction 'Visualizar'}}
+                                        <li class="{{isActivePath path=viewPath}}"><a href="{{viewPath}}"><i class="fa fa-angle-double-right"></i> Visualizar todos</a></li>
+                                    {{/if}}
+                                    <!--if isAction 'Editar_um'}}
+                                        <li class="isActivePath path=editPath}}"><a href="editPath}}"><i class="fa fa-angle-double-right"></i> Editar</a></li>
+                                    /if}}-->
+                                    {{#each admin_collection_items}}
+                                        <li class="{{isActivePath path=url}}"><a href="{{url}}"><i class="fa fa-angle-double-right"></i> {{title}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                    {{#each admin_sidebar_items}}
+                        {{#if showMenu}}
+                            {{#if options.urls}}
+                                {{> adminSidebarItemTree}}
+                            {{else}}
+                                {{> adminSidebarItem}}
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <img src="/img/footer-logo-admin.png" alt="Futuriti - Seu negócio, nossa tecnologia" height="30">
+            </div>
+        </div>
+    </aside>
+</template>
+
+<template name="adminSidebarItem">
+    <li class="{{isActivePath path=url}}">
+        <a href="{{url}}">
+            {{#if options.icon}}
+                <i class="fa fa-{{options.icon}}"></i>
+            {{/if}}
+            <span>{{title}}</span>
+        </a>
+    </li>
+</template>
+
+<template name="adminSidebarItemTree">
+    <li class="treeview">
+        <a href="#">
+            {{#if options.icon}}
+                <i class="fa fa-{{options.icon}}"></i>
+            {{/if}}
+            <span>{{title}}</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            {{#each options.urls}}
+                {{#if showItem}}
+                    <li class="{{isActivePath path=url}}"><a href="{{url}}"><i class="fa fa-angle-double-right"></i>{{title}}</a></li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </li>
+</template>

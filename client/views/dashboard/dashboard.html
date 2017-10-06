@@ -1,0 +1,157 @@
+<template name="dashboard">
+	<div class="template-dashboard">
+		<div>
+			<div class="row" id="champion-messages">
+				<div class="col s3">
+					{{> dashboardProfile}}
+					<!--{{> favoritesSidebar}}-->
+				</div>
+				<div class="col s9">
+					{{> dashboardDefaultWidgets}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="dashboardProfile">
+	<div class="col l12 s12 panel">
+		<div class="image-profile">
+			<img alt={{niceName User._id 'firstName'}} class="img-responsive" width="190" height="190" src="{{profileThumbSrc User._id}}" >
+		</div>
+		<div class="col l12 s8 panel-body">
+			<h3 class="text-center">
+				{{niceName User._id 'firstName'}}
+			</h3>
+			<ul class="text-center">
+					<!--<li>
+						<a href="/users/show/51905755">Ver Perfil</a>
+					</li>-->
+					<li>
+						<a href="{{pathFor 'profile'}}">Editar Perfil</a>
+					</li>
+				{{#if isProvider}}
+					<li>
+						<a href="{{pathFor 'schedule'}}">Editar Local/Hora Atendimento</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'provider'}}">Editar Perfil Profissional</a>
+					</li>
+				{{else}}
+					<li>
+						<a href="{{pathFor 'pets'}}">Editar Meus Pets</a>
+					</li>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</template>
+
+<template name="dashboardDefaultWidgets">
+	{{#each dashboard_collections}}
+		{{> dashboardCollectionWidget collection=name}}
+	{{/each}}
+</template>
+
+<template name="dashboardCollectionWidget">
+	<div id="card-stats">
+		<div class="row">
+		{{#with dashboardGetCollection collection}}
+			<div class="col s12 m6 l4">
+				<div class="card">
+					<div class="card-content blue-grey white-text">
+						<p class="card-stats-title">{{this.label}}</p>
+						<p class="card-stats-number">Cadastrados: {{this.count}}</p>
+						<!--<p class="card-stats-compare">
+							<i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span>
+						</p>-->
+					</div>
+					<div class="card-action blue-grey darken-2">
+						<div class="center-align white-text">
+							<a href="{{pathFor 'service'}}">{{_ "Editar"}}</a>
+							<!--<canvas width="227" height="25" style="display: inline-block; width: 227px; height: 25px; vertical-align: top;"></canvas>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/with}}
+		</div>
+	</div>
+</template>
+
+<template name="posts">
+	<div class="template-posts">
+		{{#each  posts}}
+		{{> post}}
+		{{else}}
+		{{> noData}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="post">
+	<div class="template-post">
+		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						{{title}}
+						<span class="pull-right">
+							<i class="fa fa-thumbs-up"></i> {{#with favoritesByDoc _id}}{{count}}{{/with}}
+							<i class="fa fa-comments"></i> {{commentCount _id}}
+						</span>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<p class="text-center">
+						{{#with getDoc picture 'Attachments'}}
+							<img src="{{url}}" class="img-thumbnail img-rounded">
+						{{/with}}
+					</p>
+					<div class="media">
+						<a class="pull-left" href="#">
+							{{> avatar userId=owner shape="circle"}}
+						</a>
+						<div class="media-body">
+							<p>{{content}}</p>
+							{{#if $eq owner User._id}}
+							<small>
+								{{#afModal title="Update post" omitFields="createdAt,updatedAt,owner" class="text-primary" collection="Posts" operation="update" doc=_id}}
+									<i class="fa fa-pencil" buttonContent="Edit post"></i> {{_ "edit_post"}}
+								{{/afModal}}
+								{{#afModal title="Delete post" class="text-danger" collection="Posts" operation="remove" doc=_id}}
+									<i class="fa fa-times" buttonContent="Edit post"></i> {{_ "delete"}}
+								{{/afModal}}
+							</small>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					{{> favoriteButton _id=_id}}
+					{{> commentFormToggle }}
+					{{> comments}}
+				</div>
+		</div>
+	</div>
+</template>
+
+<template name="favoritesSidebar">
+	<div class="template-favorites-sidebar">
+		{{#if myFavorites.count}}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+					<h3 class="panel-title">{{_ "favorites"}}</h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+				{{#each myFavorites}}
+					<li>
+						<a>{{_id}}</a>
+					</li>
+				{{/each}}
+				</ul>
+			</div>
+		</div>
+		{{/if}}
+	</div>
+</template>

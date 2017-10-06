@@ -1,0 +1,10 @@
+<template name="registration">
+    <div class="container">
+        <div class="row" id="champion-messages">
+        {{#autoForm id="insertInscricao" collection=Inscricoes doc=Inscricoes type="insert"}}
+            {{> collectionTable collection=tableSettings.collection fields=tableSettings.fields settings=tableSettings }}
+            <input type="submit" class="btn btn-primary">
+        {{/autoForm}}
+        </div>
+    </div>
+</template>

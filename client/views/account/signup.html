@@ -1,0 +1,57 @@
+<template name="override-fullPageAtForm">
+    <div class="row">
+        <div class="col s12 m4 offset-m3 offset-l4 8">
+            <div class="at-logo">
+                <img src="/img/logo3-light.png">
+            </div>
+            {{> atForm}}
+        </div>
+    </div>
+</template>
+
+<template name="override-atPwdForm">
+    <div class="at-pwd-form">
+        <form role="form" id="at-pwd-form" class="{{disabled}}" novalidate action="#" method="POST">
+            {{#each fields}}
+                {{> atInput}}
+            {{/each}}
+            {{#if showReCaptcha}}
+                {{> atReCaptcha}}
+            {{/if}}
+            {{#if showForgotPasswordLink}}
+                {{> atPwdLink}}
+            {{/if}}
+            {{> atPwdFormBtn}}
+        </form>
+    </div>
+</template>
+
+<template name="override-atTextInput">
+    <div class="row">
+        <div class="at-input input-field col s12">
+            <i class="material-icons medium prefix" id="at-label-{{_id}}" style="line-height: 2;"></i>
+            {{#if showLabels}}
+                <label for="at-field-{{_id}}">
+                    {{displayName}} {{#unless required}}{{optionalText}}{{/unless}}
+                </label>
+            {{/if}}
+            <input class="validate {{#if hasError}}invalid{{/if}} {{#if hasSuccess}}valid{{/if}}" type="{{type}}" id="at-field-{{_id}}" name="at-field-{{_id}}" placeholder="{{#unless showLabels}} {{placeholder}} {{/unless}}" autocapitalize="none" autocorrect="off">
+            {{#if hasIcon}}
+                <span class="{{iconClass}}"></span>
+            {{/if}}
+            {{#if hasError}}
+                <span class='red-text'>{{errorText}}</span>
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="override-atPwdFormBtn">
+    <div class="row">
+        <div class="input-field col s12">
+            <button type="submit" class="at-btn submit {{submitDisabled}} waves-effect waves-light btn" id="at-btn">
+                {{buttonText}}
+            </button>
+        </div>
+    </div>
+</template>

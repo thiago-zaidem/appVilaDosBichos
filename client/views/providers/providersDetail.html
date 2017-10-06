@@ -1,0 +1,57 @@
+<template name="providersDetail">
+	<section id="details" style="margin-top: 82px;">
+		<div class="banner-profile"></div>
+		<div class="row">
+			<div class="col s12 m6 l8">
+				{{> details}}
+			</div>
+			<div class="col s12 m5 l3">
+				{{> appointment}}
+			</div>
+		</div>
+	</section>
+</template>
+<template name="details">
+	<div class="banner-content row">
+		<!-- profile data -->
+		<div class="row col l3 m8 s8 image-profile " style="background-image: url('{{profileThumbSrc provider.userId}}')"></div>
+		<div class="row col s12">
+			<h4>{{provider.nome}}</h4>
+			<h5>{{provider.especialidade}}&nbsp;&nbsp;<img src="/img/star-rate.png"></h5>
+		</div>
+		<div class="row col s12 text-center box-profile">
+			<div class="col s3">
+				<i class="material-icons" style=" font-size: 2.8em !important;">copyright</i>
+				<br><span class="text-small" >{{provider.subespecialidade}}</span>
+			</div>
+			<div class="col s3">
+				<i class="material-icons" style=" font-size: 2.8em !important;">copyright</i>
+				<br><span class="text-small" >Joelho</span>
+			</div>
+			<div class="col s3">
+				<i class="material-icons" style=" font-size: 2.8em !important;">copyright</i>
+				<br><span class="text-small" >Joelho</span>
+			</div>
+			<div class="col s3">
+				<i class="material-icons" style=" font-size: 2.8em !important;">copyright</i>
+				<br><span class="text-small" >Joelho</span>
+			</div>
+		</div>
+		<div class="row col s12">
+			<h4><span>Informações sobre o(a) {{provider.perfilTipo}}</span></h4>
+		</div>
+		<!-- end profile data -->
+	</div>
+</template>
+<template name="appointment">
+	{{#autoForm collection="Appointments" id="insertAppointment" type="insert"}}
+		{{> afQuickField name="providerId" type="hidden"}}
+		{{> afQuickField name="clientId" type="hidden"}}
+		{{> afQuickField name="local" type="string"}}
+		{{> afQuickField name="date" type="date"}}
+		{{> afQuickField name="time" type="time"}}
+		<div>
+			<button type="submit" class="btn btn-primary">Reservar horário</button>
+		</div>
+	{{/autoForm}}
+</template>

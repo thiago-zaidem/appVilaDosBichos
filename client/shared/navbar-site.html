@@ -1,0 +1,106 @@
+<template name="navbarSite">
+    <header id="header" role="banner">
+        <div class="wrapper">
+            <!--=== Header v6 ===-->
+            <div class="header-v6 header-white-transparent header-sticky">
+                <!-- Navbar -->
+                <div class="navbar mega-menu" role="navigation">
+                    <div class="">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="menu-container">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <!-- Navbar Brand -->
+                            <div class="navbar-brand" style="margin-top: 10px; margin-left: 52px;">
+                                <a href="/">
+                                    <img class="default-logo" src="/img/logo3-light.png" alt="Logo">
+                                    <img class="shrink-logo" src="/img/logo3-white.png" alt="Logo">
+                                </a>
+                            </div>
+                            <!-- ENd Navbar Brand -->
+                            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                                <div class="menu-container" style="margin-right: 52px;">
+                                    <ul class="nav navbar-nav">
+                                        <li class="scroll" id="home"><a href="/sign-up">Cadastre-se</a></li>
+                                        <li class="scroll" style="border-right: 1px solid #fff"><a href="/about">Ajuda</a></li>
+                                        {{#if currentUser }}
+                                            <li class="scroll">
+												<a href="#" class="dropdown-button" data-activates="dropdown_profile_home">
+													<div class="row" style="margin-bottom: 0px;">
+														<div class="col s4 m4 l4">
+															<img src="{{profileThumbSrc User._id}}" alt="" class="circle responsive-img valign profile-image">
+														</div>
+														<div class="col s3 m3 l3">
+															<i class="material-icons right">arrow_drop_down</i>
+														</div>
+													</div>
+												</a>
+												<ul id="dropdown_profile_home" class="dropdown-content">
+													<li><a href="{{pathFor 'dashboard'}}"><i class="material-icons left">dashboard</i>{{_ "Painel"}}</a></li>
+													<li><a href="{{pathFor 'profile'}}"><i class="material-icons left">perm_identity</i>{{_ "Perfil"}}</a></li>
+													<li><a href="{{pathFor 'account'}}"><i class="material-icons left">account_circle</i>{{_ "Conta"}}</a></li>
+													<!--<li><a href="{pathFor 'userDetail'}}">{_ "perfildesaude"}}</a></li>-->
+													<li class="divider"></li>
+													<li><a href="/sign-out"><i class="material-icons left">settings_power</i>{{_ "signout"}}</a></li>
+												</ul>
+											</li>
+                                        {{else}}
+                                            <li class="scroll waves-effect waves-light btn-primary"><a href="/sign-in">Entrar</a></li>
+                                        {{/if}}
+                                        <!--<li class="scroll"><a href="/clientes">Clientes</a></li>
+                                        <li class="scroll"><a href="/portifolio">Nosso trabalho</a></li>
+                                        <li class="scroll"><a href="/contato">Contato</a></li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="main-nav">
+            <div class="container">
+                <div class="header-top">
+                    <div class="pull-right social-icons">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img class="img-responsive" src="/img/logo_top.png" alt="Home">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="scroll" id="home"><a href="/">Home</a></li>
+                            <li class="scroll"><a href="/about">Quem somos</a></li>
+                            <li class="scroll"><a href="/services">Serviços</a></li>
+                            <li class="scroll"><a href="/clientes">Clientes</a></li>
+                            <li class="scroll"><a href="/portifolio">Nosso trabalho</a></li>
+                            <li class="scroll"><a href="/contato">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </header>
+</template>
+
+<template name="userFullName">
+    <p>{{fullName}}</p>
+</template>

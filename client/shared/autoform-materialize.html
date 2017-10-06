@@ -1,0 +1,19 @@
+<template name="override-afObjectField_materialize">
+    <div class="card autoform-object-field">
+        <div class="card-content">
+			<div class="row">
+				{{#with afFieldLabelText name=this.name}}
+					<div class="card-title" style="margin-bottom: 2em; color: #4a648d;">
+					{{this}}
+					</div>
+				{{/with}}
+				{{#if afFieldIsInvalid name=this.name}}
+					<div class="red-text">{{{afFieldMessage name=this.name}}}</div>
+				{{/if}}
+			</div>
+			<div class="row">
+				{{> afQuickFields name=this.name}}
+			</div>
+        </div>
+    </div>
+</template>
